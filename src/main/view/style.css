@@ -1,0 +1,88 @@
+
+.home-page {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    box-sizing: border-box;
+    background: #f4f7fb;
+}
+
+.reader-card-button {
+    display: inline-block;
+    padding: 18px 30px;
+    border-radius: 8px;
+    background: #1769aa;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 600;
+    text-align: center;
+    text-decoration: none;
+    box-shadow: 0 4px 12px rgba(23, 105, 170, 0.22);
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.reader-card-button:hover {
+    background: #10558c;
+    transform: translateY(-2px);
+}
+
+.reader-card-button:focus-visible {
+    outline: 3px solid #8bc4f2;
+    outline-offset: 3px;
+}
+
+.register-page {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    box-sizing: border-box;
+    background: #f4f7fb;
+}
+
+.register-card {
+    width: min(100%, 520px);
+    padding: 28px;
+    box-sizing: border-box;
+    border-radius: 12px;
+    background: #fff;
+    box-shadow: 0 8px 28px rgba(20, 45, 70, 0.12);
+}
+
+.register-card h2 {
+    margin: 0 0 20px;
+    text-align: center;
+}
+
+.form-column {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.form-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.form-row label {
+    width: 100px;
+    text-align: right;
+}
+
+.form-row input {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.form-column button {
+    padding: 10px;
+    cursor: pointer;
+    align-self: center;
+}
