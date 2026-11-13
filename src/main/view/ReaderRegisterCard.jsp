@@ -1,5 +1,22 @@
-<%@ page import="DAO.ReaderCard3DAO" %>
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ page import="DAO.ReaderCard3DAO, model.Member3" %>
+<%!
+  // Escape a value for use inside an HTML attribute; null -> "".
+  private static String attr(String s) {
+    if (s == null) return "";
+    return s.replace("&", "&amp;").replace("\"", "&quot;").replace("<", "&lt;").replace(">", "&gt;");
+  }
+%>
 <%
+  request.setCharacterEncoding("UTF-8");
+
+  // Member3 was put in the session by LoginPage.jsp after a successful login.
+  Member3 member = (Member3) session.getAttribute("member");
+  if (member == null) {
+    response.sendRedirect(request.getContextPath() + "/LoginPage.jsp");
+    return;
+  }
+
   if ("POST".equalsIgnoreCase(request.getMethod())) {
     boolean registered = new ReaderCard3DAO().registerCard(
         request.getParameter("name"),
@@ -28,15 +45,15 @@
         <form class="form-column" method="post">
           <div class="form-row">
             <label for="readername">Reader name</label>
-            <input id="readername" type="text" name="name" required />
+            <input id="readername" type="text" name="name" value="<%= attr(member.getName()) %>" required />
           </div>
           <div class="form-row">
             <label for="dob">DOB</label>
-            <input id="dob" type="text" name="dob" required />
+            <input id="dob" type="text" name="dob" value="<%= attr(member.getDob()) %>" required />
           </div>
           <div class="form-row">
             <label for="cccd">CCCD</label>
-            <input id="cccd" type="text" name="cccd" required />
+            <input id="cccd" type="text" name="cccd" value="<%= attr(member.getIdNumber()) %>" required />
           </div>
           <div class="form-row">
             <label for="phone">Phone</label>

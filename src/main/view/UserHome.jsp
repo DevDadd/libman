@@ -1,3 +1,13 @@
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ page import="model.Member3" %>
+<%
+  // Member3 was put in the session by LoginPage.jsp after a successful login.
+  Member3 member = (Member3) session.getAttribute("member");
+  if (member == null) {
+    response.sendRedirect(request.getContextPath() + "/LoginPage.jsp");
+    return;
+  }
+%>
 <!DOCTYPE html>
 <html lang="vi">
   <head>

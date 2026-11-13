@@ -14,6 +14,16 @@ public class DAO3 {
 
     public static Connection con;
 
+    static {
+        // In Tomcat, DriverManager does not auto-discover drivers in WEB-INF/lib ->
+        // register explicitly.
+        try {
+            Class.forName("org.sqlite.JDBC");
+        } catch (ClassNotFoundException e) {
+            throw new IllegalStateException("SQLite JDBC driver not found on classpath", e);
+        }
+    }
+
     public DAO3() {
         try {
             if (con == null || con.isClosed()) {

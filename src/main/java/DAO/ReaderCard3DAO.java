@@ -1,9 +1,12 @@
 package DAO;
 
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
-import java.sql.Statement;
+import java.time.LocalDate;
 
 public class ReaderCard3DAO extends DAO3{
+    private static final int CARD_VALID_YEARS = 3;
+
     public ReaderCard3DAO(){
         super();
     }
@@ -14,9 +17,14 @@ public class ReaderCard3DAO extends DAO3{
                 || phone == null || phone.isBlank()) {
             return false;
         }
-        String insertCard = "INSERT INTO tblReaderCard3 (memberID) VALUES ('" + cccd.trim() + "')";
-        try (Statement statement = con.createStatement()) {
-            statement.executeUpdate(insertCard);
+        // Card expires 3 years from today, stored as yyyy-MM-dd (e.g. 2029-11-13).
+        String expiredDate = LocalDate.now().plusYears(CARD_VALID_YEARS).toString();
+
+        String insertCard = "INSERT INTO tblReaderCard3 (expiredDate, memberID) VALUES (?, ?)";
+        try (PreparedStatement ps = con.prepareStatement(insertCard)) {
+            ps.setString(1, expiredDate);
+            ps.setString(2, cccd.trim());
+            ps.executeUpdate();
             return true;
         } catch (SQLException e) {
             return false;

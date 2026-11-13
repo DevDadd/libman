@@ -86,3 +86,17 @@
     cursor: pointer;
     align-self: center;
 }
+
+.login-card {
+    width: min(100%, 400px);
+}
+
+.login-card .form-row label {
+    width: 40px;
+}
+
+.form-error {
+    margin: 0 0 12px;
+    color: #c62828;
+    text-align: center;
+}
