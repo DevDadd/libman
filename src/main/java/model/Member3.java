@@ -9,9 +9,10 @@ public class Member3 {
     private String address;
     private String role;
     private String note;
+    private ReaderCard3 readerCard;
 
     public Member3(String name, String age, String dob, String idNumber, String password, String address,
-            String role, String note) {
+            String role, String note, ReaderCard3 readerCard) {
         this.name = name;
         this.age = age;
         this.dob = dob;
@@ -20,6 +21,7 @@ public class Member3 {
         this.address = address;
         this.role = role;
         this.note = note;
+        this.readerCard = readerCard;
     }
 
     public String getName() {
@@ -52,5 +54,13 @@ public class Member3 {
 
     public String getNote() {
         return note;
+    }
+
+    public ReaderCard3 getReaderCard() {
+        return readerCard;
+    }
+
+    public void setReaderCard(ReaderCard3 readerCard) {
+        this.readerCard = readerCard;
     }
 }
