@@ -31,7 +31,8 @@ public class Member3DAO extends DAO3 {
                         rs.getString("password"),
                         rs.getString("address"),
                         rs.getString("role"),
-                        rs.getString("note"));
+                        rs.getString("note"),
+                        null); // reader card is not loaded at login
             }
         } catch (SQLException e) {
             throw new IllegalStateException("Could not check login", e);

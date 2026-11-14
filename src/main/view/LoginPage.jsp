@@ -9,7 +9,8 @@
     Member3 member = new Member3DAO().checkLogin(username, request.getParameter("password"));
     if (member != null) {
       session.setAttribute("member", member);
-      response.sendRedirect(request.getContextPath() + "/UserHome.jsp");
+      String home = "ADMIN".equalsIgnoreCase(member.getRole()) ? "/ManagerHome.jsp" : "/UserHome.jsp";
+      response.sendRedirect(request.getContextPath() + home);
       return;
     }
     error = "Sai tài khoản hoặc mật khẩu";
