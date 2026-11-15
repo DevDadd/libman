@@ -100,3 +100,60 @@
     color: #c62828;
     text-align: center;
 }
+
+.report-card {
+    width: min(100%, 760px);
+}
+
+.report-card .form-row label {
+    width: 120px;
+}
+
+.form-column .filter-button {
+    align-self: flex-end;
+    min-width: 100px;
+}
+
+.table-wrapper {
+    margin-top: 24px;
+    overflow-x: auto;
+}
+
+.report-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.report-table th,
+.report-table td {
+    padding: 8px 10px;
+    border: 1px solid #333;
+    text-align: left;
+}
+
+.report-table th {
+    background: #eef3f8;
+}
+
+.report-table td.empty-row {
+    color: #777;
+    text-align: center;
+}
+
+.report-table td.number-cell {
+    text-align: right;
+}
+
+.table-link {
+    color: #1769aa;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.table-link:hover {
+    text-decoration: underline;
+}
+
+.report-back {
+    margin: 20px 0 0;
+}

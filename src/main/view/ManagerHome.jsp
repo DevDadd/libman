@@ -1,7 +1,6 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ page import="model.Member3" %>
 <%
-  // Member3 was put in the session by LoginPage.jsp after a successful login.
   Member3 member = (Member3) session.getAttribute("member");
   if (member == null) {
     response.sendRedirect(request.getContextPath() + "/LoginPage.jsp");
@@ -18,7 +17,7 @@
   </head>
   <body>
     <main class="home-page">
-      <a class="reader-card-button" href="DocumentStatusReport.jsp">Xem thống kê</a>
+      <a class="reader-card-button" href="ViewStatistic.jsp">Xem thống kê</a>
     </main>
   </body>
 </html>
