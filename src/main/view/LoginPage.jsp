@@ -9,7 +9,7 @@
     Member3 member = new Member3DAO().checkLogin(username, request.getParameter("password"));
     if (member != null) {
       session.setAttribute("member", member);
-      String home = "ADMIN".equalsIgnoreCase(member.getRole()) ? "/ManagerHome.jsp" : "/UserHome.jsp";
+      String home = "ADMIN".equalsIgnoreCase(member.getRole()) ? "/StaffManager/ManagerHome.jsp" : "/Member/UserHome.jsp";
       response.sendRedirect(request.getContextPath() + home);
       return;
     }

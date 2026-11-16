@@ -23,7 +23,7 @@
         request.getParameter("phone"));
 
     if (registered) {
-      response.sendRedirect(request.getContextPath() + "/UserHome.jsp");
+      response.sendRedirect(request.getContextPath() + "/Member/UserHome.jsp");
       return;
     }
   }
@@ -34,7 +34,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Đăng ký thẻ bạn đọc trực tuyến</title>
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/style.css" />
   </head>
   <body>
     <main class="register-page">
